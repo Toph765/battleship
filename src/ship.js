@@ -1,15 +1,10 @@
 const Ship = (n) => {
-  const ship = [];
   let shipObj = {};
 
-  for (let i = 0; i < n; i++) {
-    ship.push(0);
-  }
-
-  shipObj["ship"] = ship;
-  shipObj["length"] = ship.length;
+  shipObj["length"] = n;
   shipObj["hitCount"] = 0;
   shipObj["sunk"] = false;
+  shipObj["orientation"] = "horizontal";
 
   const getShip = () => shipObj;
 
