@@ -2,8 +2,15 @@ import { Ship } from "./ship";
 
 const Gameboard = () => {
   let board = [];
+  let misses = [];
+
+  let ships = {
+    foo: Ship(2),
+  };
 
   const getBoard = () => board;
+  const getMisses = () => misses;
+  const getShips = () => ships;
 
   const createBoard = () => {
     for (let i = 0; i < 10; i++) {
@@ -36,10 +43,22 @@ const Gameboard = () => {
     return board;
   };
 
+  const receiveAttack = (x, y) => {
+    if (board[x][y] === null) misses.push([x, y]);
+    else {
+      board[x][y].hit();
+    }
+
+    return board;
+  };
+
   return {
     createBoard,
     placeShip,
     getBoard,
+    getShips,
+    receiveAttack,
+    getMisses,
   };
 };
 
