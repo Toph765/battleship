@@ -4,13 +4,22 @@ const Gameboard = () => {
   let board = [];
   let misses = [];
 
-  let ships = {
-    foo: Ship(2),
+  let allShips = {
+    l_ship: Ship(4),
+    m_ship_I: Ship(3),
+    m_ship_II: Ship(3),
+    s_ship_I: Ship(2),
+    s_ship_II: Ship(2),
+    s_ship_III: Ship(2),
+    xs_ship_I: Ship(1),
+    xs_ship_II: Ship(1),
+    xs_ship_III: Ship(1),
+    xs_ship_IV: Ship(1),
   };
 
   const getBoard = () => board;
   const getMisses = () => misses;
-  const getShips = () => ships;
+  const getShips = () => allShips;
 
   const createBoard = () => {
     for (let i = 0; i < 10; i++) {
@@ -52,6 +61,19 @@ const Gameboard = () => {
     return board;
   };
 
+  const isAllSunk = () => {
+    const ships = Object.values(allShips);
+    let status = false;
+
+    ships.forEach((ship) => {
+      if (ship.getShip().sunk === false) {
+        return (status = false);
+      } else status = true;
+    });
+
+    return status;
+  };
+
   return {
     createBoard,
     placeShip,
@@ -59,6 +81,7 @@ const Gameboard = () => {
     getShips,
     receiveAttack,
     getMisses,
+    isAllSunk,
   };
 };
 
