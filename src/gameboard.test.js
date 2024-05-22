@@ -37,11 +37,26 @@ test("miss an attack", () => {
 
 test("get hit count", () => {
   let board = Gameboard();
-  let foo = board.getShips().foo;
+  let shipI = board.getShips().s_ship_I;
 
   board.createBoard();
-  board.placeShip(1, 2, foo);
+  board.placeShip(1, 2, shipI);
   board.receiveAttack(1, 2);
 
-  expect(board.getShips().foo.getShip().hitCount).toBe(1);
+  expect(board.getShips().s_ship_I.getShip().hitCount).toBe(1);
+});
+
+test("all is sunk: false", () => {
+  let board = Gameboard();
+  let shipI = board.getShips().s_ship_I;
+  let shipII = board.getShips().xs_ship_I;
+
+  board.createBoard();
+  board.placeShip(1, 2, shipI);
+  board.placeShip(2, 2, shipII);
+  board.receiveAttack(1, 2);
+  board.receiveAttack(1, 3);
+  board.receiveAttack(2, 2);
+
+  expect(board.isAllSunk()).toBe(false);
 });
