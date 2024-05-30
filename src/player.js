@@ -1,12 +1,15 @@
 import { Gameboard } from "./gameboard";
 
-const Player = (name) => {
+const Player = (number) => {
   let win = false;
   let board = Gameboard();
+  let isComp = false;
+
   return {
-    name,
+    number,
     win,
     board,
+    isComp,
   };
 };
 
