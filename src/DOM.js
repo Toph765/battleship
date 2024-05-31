@@ -1,3 +1,9 @@
+const fillSqr = (sqr, tag) => {
+  if (sqr === null) {
+    tag.setAttribute("style", "background-color: blue;");
+  }
+};
+
 const renderBoard = (player) => {
   const board = player.board.getBoard();
   const playerNum = player.number;
@@ -8,6 +14,8 @@ const renderBoard = (player) => {
       const square = document.createElement("button");
       square.setAttribute("data-x", `${i}`);
       square.setAttribute("data-y", `${j}`);
+
+      fillSqr(board[i][j], square);
 
       currentBoard.appendChild(square);
     }
