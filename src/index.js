@@ -1,5 +1,5 @@
 import { Player } from "./player";
-import { renderBoard } from "./DOM";
+import { renderBoard, grabPlayerShips } from "./DOM";
 
 let playerOne = Player("One");
 let playerTwo = Player("Two");
@@ -10,6 +10,9 @@ playerOne.board.createBoard();
 playerTwo.board.createBoard();
 
 playerOne.board.placeShip(0, 1, foo);
+
+grabPlayerShips(playerOne);
+grabPlayerShips(playerTwo);
 
 renderBoard(playerOne);
 renderBoard(playerTwo);
