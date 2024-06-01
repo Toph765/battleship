@@ -9,6 +9,9 @@ const renderBoard = (player) => {
   const playerNum = player.number;
   let currentBoard = document.getElementById(`board${playerNum}`);
 
+  while (currentBoard.lastElementChild)
+    currentBoard.removeChild(currentBoard.lastElementChild);
+
   for (let i = 0; i < board.length; i++) {
     for (let j = 0; j < board.length; j++) {
       const square = document.createElement("button");
@@ -24,4 +27,39 @@ const renderBoard = (player) => {
   return currentBoard;
 };
 
-export { renderBoard };
+const grabPlayerShips = (player) => {
+  const shipsObj = player.board.getShips();
+  const ships = Object.keys(shipsObj);
+  const selection = document.querySelector(`#player${player.number}-ships`);
+
+  ships.forEach((ship) => {
+    const option = document.createElement("option");
+    option.textContent = ship;
+    selection.appendChild(option);
+  });
+
+  return selection;
+};
+
+const initPlaceShip = (player) => {
+  const button = document.querySelector("#placeShipBtn");
+
+  button.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const xCoor = document.querySelector(`#player${player.number}-y`).value;
+    const yCoor = document.querySelector(`#player${player.number}-x`).value;
+    const shipName = document.querySelector(
+      `#player${player.number}-ships`
+    ).value;
+
+    const ship = player.board.getShips()[shipName];
+
+    console.log(shipName);
+
+    player.board.placeShip(xCoor, yCoor, ship);
+    renderBoard(player);
+  });
+};
+
+export { renderBoard, grabPlayerShips, initPlaceShip };
