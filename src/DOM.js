@@ -4,8 +4,27 @@ const fillSqr = (sqr, tag) => {
   }
 };
 
+const renderShip = (player) => {
+  let board = player.board.getBoard();
+  const shipsObj = player.board.getShips();
+  const shipsList = Object.keys(shipsObj);
+
+  shipsList.forEach((ship) => {
+    const xCoor = shipsObj[ship].getShip().xCoor;
+    const yCoor = shipsObj[ship].getShip().yCoor;
+
+    if (xCoor !== null) {
+      player.board.placeShip(xCoor, yCoor, shipsObj[ship]);
+    }
+  });
+
+  return board;
+};
+
 const renderBoard = (player) => {
   player.board.createBoard();
+
+  renderShip(player);
 
   const board = player.board.getBoard();
   const playerNum = player.number;
