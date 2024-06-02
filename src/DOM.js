@@ -5,6 +5,8 @@ const fillSqr = (sqr, tag) => {
 };
 
 const renderBoard = (player) => {
+  player.board.createBoard();
+
   const board = player.board.getBoard();
   const playerNum = player.number;
   let currentBoard = document.getElementById(`board${playerNum}`);
@@ -47,15 +49,17 @@ const initPlaceShip = (player) => {
   button.addEventListener("click", (e) => {
     e.preventDefault();
 
-    const xCoor = document.querySelector(`#player${player.number}-y`).value;
-    const yCoor = document.querySelector(`#player${player.number}-x`).value;
+    const xCoor = parseInt(
+      document.querySelector(`#player${player.number}-y`).value
+    );
+    const yCoor = parseInt(
+      document.querySelector(`#player${player.number}-x`).value
+    );
     const shipName = document.querySelector(
       `#player${player.number}-ships`
     ).value;
 
     const ship = player.board.getShips()[shipName];
-
-    console.log(shipName);
 
     player.board.placeShip(xCoor, yCoor, ship);
     renderBoard(player);
