@@ -37,6 +37,9 @@ const Gameboard = () => {
     let a = x;
     let b = y;
 
+    ship.getShip().xCoor = x;
+    ship.getShip().yCoor = y;
+
     if (y + length - 1 > 9 || x + length - 1 > 9) return console.log("error");
 
     if (ship.getShip().orientation === "horizontal") {
