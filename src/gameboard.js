@@ -40,14 +40,14 @@ const Gameboard = () => {
     ship.getShip().xCoor = x;
     ship.getShip().yCoor = y;
 
-    if (y + length - 1 > 9 || x + length - 1 > 9) return console.log("error");
-
     if (ship.getShip().orientation === "horizontal") {
+      if (y + length - 1 > 9 || x > 9) return console.log("error");
       while (b !== y + length) {
         board[x][b] = ship;
         b += 1;
       }
     } else {
+      if (x + length - 1 > 9 || y > 9) return console.log("error");
       while (a !== x + length) {
         board[a][y] = ship;
         a += 1;
