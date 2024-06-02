@@ -5,6 +5,8 @@ const Ship = (n) => {
   shipObj["hitCount"] = 0;
   shipObj["sunk"] = false;
   shipObj["orientation"] = "horizontal";
+  shipObj["xCoor"] = null;
+  shipObj["yCoor"] = null;
 
   const getShip = () => shipObj;
 
