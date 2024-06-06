@@ -92,12 +92,18 @@ const renderForm = (player) => {
 
   const form = document.createElement("form");
   const selection = document.createElement("select");
+  const orientation = document.createElement("select");
   const inputX = document.createElement("input");
   const inputY = document.createElement("input");
   const button = document.createElement("button");
+  const cross = document.createElement("option");
+  const long = document.createElement("option");
 
   selection.setAttribute("name", "ships");
   selection.setAttribute("id", `player${playerNo}-ships`);
+
+  orientation.setAttribute("name", "orientation");
+  orientation.setAttribute("id", `player${playerNo}-orient`);
 
   inputX.setAttribute("type", "text");
   inputX.setAttribute("id", `player${playerNo}-x`);
@@ -112,7 +118,11 @@ const renderForm = (player) => {
   button.setAttribute("id", `placeShipBtn-${playerNo}`);
   button.textContent = "Place";
 
-  form.append(selection, inputX, inputY, button);
+  cross.textContent = "horizontal";
+  long.textContent = "vertical";
+
+  orientation.append(cross, long);
+  form.append(selection, inputX, inputY, orientation, button);
   main.appendChild(form);
 
   return main;
