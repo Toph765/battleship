@@ -78,7 +78,14 @@ const initPlaceShip = (player) => {
       `#player${player.number}-ships`
     ).value;
 
+    const orient = document.querySelector(
+      `#player${player.number}-orient`
+    ).value;
+
     const ship = player.board.getShips()[shipName];
+
+    ship.getShip().orientation = orient;
+    console.log(orient);
 
     player.board.placeShip(xCoor, yCoor, ship);
     renderBoard(player);
