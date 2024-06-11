@@ -105,6 +105,9 @@ const renderForm = (player) => {
   const button = document.createElement("button");
   const cross = document.createElement("option");
   const long = document.createElement("option");
+  const fin = document.createElement("button");
+
+  form.setAttribute("id", `player${playerNo}-form`);
 
   selection.setAttribute("name", "ships");
   selection.setAttribute("id", `player${playerNo}-ships`);
@@ -125,11 +128,14 @@ const renderForm = (player) => {
   button.setAttribute("id", `placeShipBtn-${playerNo}`);
   button.textContent = "Place";
 
+  fin.setAttribute("id", `player${playerNo}-finBtn`);
+  fin.textContent = "Finish set up";
+
   cross.textContent = "horizontal";
   long.textContent = "vertical";
 
   orientation.append(cross, long);
-  form.append(selection, inputX, inputY, orientation, button);
+  form.append(selection, inputX, inputY, orientation, button, fin);
   main.appendChild(form);
 
   return main;
