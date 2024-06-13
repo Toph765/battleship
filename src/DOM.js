@@ -141,4 +141,38 @@ const renderForm = (player) => {
   return main;
 };
 
-export { renderBoard, grabPlayerShips, initPlaceShip, renderForm };
+const initFinSetup = (player) => {
+  const button = document.querySelector(`#player${player.number}-finBtn`);
+  const form = document.querySelector(`#player${player.number}-form`);
+  const shipsObj = player.board.getShips();
+  const ships = Object.values(shipsObj);
+  let isAllPlaced = false;
+
+  console.log(shipsObj);
+
+  ships.forEach((ship) => {
+    if (ship.getShip().xCoor === null) return (isAllPlaced = false);
+    else isAllPlaced = true;
+  });
+
+  button.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    ships.forEach((ship) => {
+      if (ship.getShip().xCoor === null) return (isAllPlaced = false);
+      else isAllPlaced = true;
+    });
+
+    isAllPlaced
+      ? form.setAttribute("style", "display: none;")
+      : console.log("Please place all the ships first");
+  });
+};
+
+export {
+  renderBoard,
+  grabPlayerShips,
+  initPlaceShip,
+  renderForm,
+  initFinSetup,
+};
