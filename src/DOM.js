@@ -175,7 +175,7 @@ const hideBoard = (player) => {
   let squares = document.querySelectorAll(`.${player.number}-square`);
 
   squares.forEach((square) => {
-    square.setAttribute("disabled", "");
+    square.setAttribute("disable", "");
     square.setAttribute("style", "background-color: gray;");
   });
 };
