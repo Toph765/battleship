@@ -36,7 +36,7 @@ const renderBoard = (player) => {
   for (let i = 0; i < board.length; i++) {
     for (let j = 0; j < board.length; j++) {
       const square = document.createElement("button");
-      square.classList.add("square");
+      square.classList.add(`${playerNum}-square`);
 
       square.setAttribute("data-x", `${i}`);
       square.setAttribute("data-y", `${j}`);
@@ -150,8 +150,6 @@ const initFinSetup = (player) => {
   const ships = Object.values(shipsObj);
   let isAllPlaced = false;
 
-  console.log(shipsObj);
-
   ships.forEach((ship) => {
     if (ship.getShip().xCoor === null) return (isAllPlaced = false);
     else isAllPlaced = true;
@@ -168,6 +166,17 @@ const initFinSetup = (player) => {
     isAllPlaced
       ? form.setAttribute("style", "display: none;")
       : console.log("Please place all the ships first");
+
+    hideBoard(player);
+  });
+};
+
+const hideBoard = (player) => {
+  let squares = document.querySelectorAll(`.${player.number}-square`);
+
+  squares.forEach((square) => {
+    square.setAttribute("disabled", "");
+    square.setAttribute("style", "background-color: gray;");
   });
 };
 
