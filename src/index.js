@@ -1,5 +1,11 @@
 import { Player } from "./player";
-import { renderBoard, grabPlayerShips, initPlaceShip, renderForm } from "./DOM";
+import {
+  renderBoard,
+  grabPlayerShips,
+  initPlaceShip,
+  renderForm,
+  initFinSetup,
+} from "./DOM";
 
 let playerOne = Player("One");
 let playerTwo = Player("Two");
@@ -15,3 +21,6 @@ grabPlayerShips(playerTwo);
 
 initPlaceShip(playerOne);
 initPlaceShip(playerTwo);
+
+initFinSetup(playerOne);
+initFinSetup(playerTwo);
