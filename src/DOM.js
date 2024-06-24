@@ -168,6 +168,11 @@ const initFinSetup = (player) => {
       : console.log("Please place all the ships first");
 
     hideBoard(player);
+
+    if (player.number === "Two") {
+      const dialog = document.querySelector(".dialog");
+      dialog.showModal();
+    }
   });
 };
 
