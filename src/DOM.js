@@ -180,8 +180,25 @@ const hideBoard = (player) => {
   let squares = document.querySelectorAll(`.${player.number}-square`);
 
   squares.forEach((square) => {
-    square.setAttribute("disable", "");
+    square.setAttribute("disabled", "");
     square.setAttribute("style", "background-color: gray;");
+  });
+};
+
+const initplayBtn = (POne, PTwo) => {
+  const dialog = document.querySelector(".dialog");
+  const playWindow = document.querySelector("#play-window");
+  const playBtn = document.querySelector("#play");
+  let player = playWindow.getAttribute("data-id");
+
+  playBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    if (player === "player-Two") {
+      renderBoard(POne);
+      playWindow.setAttribute("data-id", `player-${POne.number}`);
+      dialog.close();
+    }
   });
 };
 
@@ -191,4 +208,5 @@ export {
   initPlaceShip,
   renderForm,
   initFinSetup,
+  initplayBtn,
 };
