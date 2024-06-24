@@ -5,6 +5,7 @@ import {
   initPlaceShip,
   renderForm,
   initFinSetup,
+  initplayBtn,
 } from "./DOM";
 
 let playerOne = Player("One");
@@ -24,3 +25,5 @@ initPlaceShip(playerTwo);
 
 initFinSetup(playerOne);
 initFinSetup(playerTwo);
+
+initplayBtn(playerOne, playerTwo);
