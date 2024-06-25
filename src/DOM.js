@@ -202,6 +202,26 @@ const initplayBtn = (POne, PTwo) => {
   });
 };
 
+const renderPlayBd = (player) => {
+  const board = player.board.getBoard();
+  const currBoard = document.querySelector(`#board${player.number}`);
+
+  while (currBoard.lastElementChild)
+    currBoard.removeChild(currBoard.lastElementChild);
+
+  for (let i = 0; i < board.length; i++) {
+    for (let j = 0; j < board.length; j++) {
+      const square = document.createElement("button");
+      square.classList.add(`${player.number}-square`);
+
+      square.setAttribute("data-x", `${i}`);
+      square.setAttribute("data-y", `${j}`);
+
+      currBoard.appendChild(square);
+    }
+  }
+};
+
 export {
   renderBoard,
   grabPlayerShips,
