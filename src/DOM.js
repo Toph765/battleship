@@ -196,6 +196,7 @@ const initplayBtn = (POne, PTwo) => {
 
     if (player === "player-Two") {
       renderBoard(POne);
+      renderPlayBd(PTwo);
       playWindow.setAttribute("data-id", `player-${POne.number}`);
       dialog.close();
     }
