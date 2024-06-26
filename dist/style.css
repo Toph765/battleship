@@ -4,9 +4,11 @@
   box-sizing: border-box;
 }
 
-button {
+.One-square,
+.Two-square {
   height: 20px;
   width: 20px;
+  border: 1px solid black;
 }
 
 #playerOne,
