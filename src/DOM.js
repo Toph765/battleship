@@ -35,7 +35,7 @@ const renderBoard = (player) => {
 
   for (let i = 0; i < board.length; i++) {
     for (let j = 0; j < board.length; j++) {
-      const square = document.createElement("button");
+      const square = document.createElement("div");
       square.classList.add(`${playerNum}-square`);
 
       square.setAttribute("data-x", `${i}`);
