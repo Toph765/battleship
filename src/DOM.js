@@ -189,16 +189,21 @@ const initplayBtn = (POne, PTwo) => {
   const dialog = document.querySelector(".dialog");
   const playWindow = document.querySelector("#play-window");
   const playBtn = document.querySelector("#play");
-  let player = playWindow.getAttribute("data-id");
 
   playBtn.addEventListener("click", (e) => {
     e.preventDefault();
+    let player = playWindow.getAttribute("data-id");
 
     if (player === "player-Two") {
       renderBoard(POne);
       renderPlayBd(PTwo);
       playWindow.setAttribute("data-id", `player-${POne.number}`);
-      dialog.close();
+      return dialog.close();
+    } else if (player === "player-One") {
+      renderBoard(PTwo);
+      renderPlayBd(POne);
+      playWindow.setAttribute("data-id", `player-${PTwo.number}`);
+      return dialog.close();
     }
   });
 };
