@@ -223,6 +223,27 @@ const renderPlayBd = (player) => {
   }
 };
 
+const initSqrBtn = (player, square) => {
+  const board = player.board;
+  const boardList = board.getBoard();
+  const dialog = document.querySelector(".dialog");
+  const x = square.getAttribute("data-x");
+  const y = square.getAttribute("data-y");
+
+  square.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    board.receiveAttack(x, y);
+    if (boardList[x][y] === null) {
+      hideBoard(player);
+      square.setAttribute("style", "background-color: red;");
+      dialog.showModal();
+    } else {
+      square.setAttribute("style", "background-color: green;");
+    }
+  });
+};
+
 export {
   renderBoard,
   grabPlayerShips,
