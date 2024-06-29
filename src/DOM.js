@@ -218,6 +218,8 @@ const renderPlayBd = (player) => {
       square.setAttribute("data-x", `${i}`);
       square.setAttribute("data-y", `${j}`);
 
+      initSqrBtn(player, square);
+
       currBoard.appendChild(square);
     }
   }
