@@ -210,6 +210,7 @@ const initplayBtn = (POne, PTwo) => {
 
 const renderPlayBd = (player) => {
   const board = player.board.getBoard();
+  const misses = player.board.getMisses();
   const currBoard = document.querySelector(`#board${player.number}`);
 
   while (currBoard.lastElementChild)
@@ -217,6 +218,8 @@ const renderPlayBd = (player) => {
 
   for (let i = 0; i < board.length; i++) {
     for (let j = 0; j < board.length; j++) {
+      const item = board[i][j];
+
       const square = document.createElement("button");
       square.classList.add(`${player.number}-square`);
 
@@ -224,6 +227,26 @@ const renderPlayBd = (player) => {
       square.setAttribute("data-y", `${j}`);
 
       initSqrBtn(player, square);
+
+      if (
+        item !== null &&
+        item.getShip().hitCount > 0 &&
+        item.getShip().hitCoor.find((item) => {
+          return item[0] === `${i}` && item[1] === `${j}`;
+        })
+      ) {
+        square.setAttribute("style", "background-color: red;");
+        square.setAttribute("disabled", "");
+      }
+
+      if (
+        misses.find((item) => {
+          return item[0] === `${i}` && item[1] === `${j}`;
+        })
+      ) {
+        square.setAttribute("style", "background-color: green;");
+        square.setAttribute("disabled", "");
+      }
 
       currBoard.appendChild(square);
     }
