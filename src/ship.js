@@ -7,6 +7,7 @@ const Ship = (n) => {
   shipObj["orientation"] = "horizontal";
   shipObj["xCoor"] = null;
   shipObj["yCoor"] = null;
+  shipObj["hitCoor"] = [];
 
   const getShip = () => shipObj;
 
