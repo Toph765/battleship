@@ -61,6 +61,7 @@ const Gameboard = () => {
     if (board[x][y] === null) misses.push([x, y]);
     else {
       board[x][y].hit();
+      board[x][y].getShip().hitCoor.push([x, y]);
     }
 
     return board;
