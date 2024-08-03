@@ -32,6 +32,10 @@ const Gameboard = () => {
     return board;
   };
 
+  const isEmpty = (x, y) => {
+    return board[x][y] === null ? true : false;
+  };
+
   const placeShip = (x, y, ship) => {
     const length = ship.getShip().length;
     let a = x;
