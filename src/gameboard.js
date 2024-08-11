@@ -65,9 +65,7 @@ const Gameboard = () => {
         b += 1;
       }
 
-      temp.forEach((item) => {
-        if (!isEmpty(item[0], item[1])) return (status = false);
-      });
+      status = isFit(temp);
     } else {
       if (x + length - 1 > 9 || y > 9) return console.log("error");
 
@@ -76,9 +74,7 @@ const Gameboard = () => {
         a += 1;
       }
 
-      temp.forEach((item) => {
-        if (!isEmpty(item[0], item[1])) return (status = false);
-      });
+      status = isFit(temp);
     }
 
     if (status === false) {
