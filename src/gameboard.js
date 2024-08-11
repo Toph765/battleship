@@ -38,24 +38,49 @@ const Gameboard = () => {
 
   const placeShip = (x, y, ship) => {
     const length = ship.getShip().length;
+    const orientation = ship.getShip().orientation;
     let a = x;
     let b = y;
+    let temp = [];
+    let status = true;
 
     ship.getShip().xCoor = x;
     ship.getShip().yCoor = y;
 
-    if (ship.getShip().orientation === "horizontal") {
+    if (orientation === "horizontal") {
       if (y + length - 1 > 9 || x > 9) return console.log("error");
+
       while (b !== y + length) {
-        board[x][b] = ship;
+        temp.push([x, b]);
         b += 1;
       }
+
+      temp.forEach((item) => {
+        if (!isEmpty(item[0], item[1])) return (status = false);
+      });
     } else {
       if (x + length - 1 > 9 || y > 9) return console.log("error");
+
       while (a !== x + length) {
-        board[a][y] = ship;
+        temp.push([a, y]);
         a += 1;
       }
+
+      temp.forEach((item) => {
+        if (!isEmpty(item[0], item[1])) return (status = false);
+      });
+    }
+
+    if (status === false) {
+      status = true;
+      temp = [];
+      return console.log("not empty");
+    } else {
+      ship.getShip().comp = temp;
+
+      ship.getShip().comp.forEach((item) => {
+        board[item[0]][item[1]] = ship;
+      });
     }
 
     return board;
