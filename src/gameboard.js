@@ -36,6 +36,16 @@ const Gameboard = () => {
     return board[x][y] === null ? true : false;
   };
 
+  const isFit = (arr) => {
+    const status = true;
+
+    arr.forEach((item) => {
+      if (!isEmpty(item[0], item[1])) return (status = false);
+    });
+
+    return status;
+  };
+
   const placeShip = (x, y, ship) => {
     const length = ship.getShip().length;
     const orientation = ship.getShip().orientation;
@@ -117,6 +127,7 @@ const Gameboard = () => {
     receiveAttack,
     getMisses,
     isAllSunk,
+    isFit,
   };
 };
 
