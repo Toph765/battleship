@@ -37,7 +37,7 @@ const Gameboard = () => {
   };
 
   const isFit = (arr) => {
-    const status = true;
+    let status = true;
 
     arr.forEach((item) => {
       if (!isEmpty(item[0], item[1])) return (status = false);
