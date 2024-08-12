@@ -46,6 +46,28 @@ const Gameboard = () => {
     return status;
   };
 
+  const createComp = (x, y, ship) => {
+    const length = ship.getShip().length;
+    const orientation = ship.getShip().orientation;
+    let temp = [];
+    let a = x;
+    let b = y;
+
+    if (orientation === "horizontal") {
+      while (b !== y + length) {
+        temp.push([x, b]);
+        b += 1;
+      }
+    } else {
+      while (a !== x + length) {
+        temp.push([a, y]);
+        a += 1;
+      }
+    }
+
+    return temp;
+  };
+
   const placeShip = (x, y, ship) => {
     const length = ship.getShip().length;
     const orientation = ship.getShip().orientation;
