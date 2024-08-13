@@ -69,33 +69,16 @@ const Gameboard = () => {
   };
 
   const placeShip = (x, y, ship) => {
-    const length = ship.getShip().length;
-    const orientation = ship.getShip().orientation;
-    let a = x;
-    let b = y;
     let temp = [];
     let status = true;
 
     ship.getShip().xCoor = x;
     ship.getShip().yCoor = y;
 
-    if (orientation === "horizontal") {
-      if (y + length - 1 > 9 || x > 9) return console.log("error");
-
-      while (b !== y + length) {
-        temp.push([x, b]);
-        b += 1;
-      }
-
-      status = isFit(temp);
+    if (y + length - 1 > 9 || x > 9 || x + length - 1 > 9 || y > 9) {
+      return console.log("error");
     } else {
-      if (x + length - 1 > 9 || y > 9) return console.log("error");
-
-      while (a !== x + length) {
-        temp.push([a, y]);
-        a += 1;
-      }
-
+      temp = createComp(x, y, ship);
       status = isFit(temp);
     }
 
