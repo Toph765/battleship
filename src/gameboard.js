@@ -97,6 +97,38 @@ const Gameboard = () => {
     return board;
   };
 
+  const populateBd = () => {
+    const keys = Object.keys(allShips);
+    const directions = ["horizontal", "vertical"];
+
+    keys.forEach((key) => {
+      const ship = allShips[key];
+      const length = ship.getShip().length;
+
+      let x = Math.floor(Math.random() * 10);
+      let y = Math.floor(Math.random() * 10);
+      let z = Math.floor(Math.random() * 2);
+
+      ship.getShip().orientation = directions[z];
+      let temp = createComp(x, y, ship);
+      let fit = isFit(temp);
+
+      while (y + length - 1 > 9 || x + length - 1 > 9 || fit === false) {
+        x = Math.floor(Math.random() * 10);
+        y = Math.floor(Math.random() * 10);
+        z = Math.floor(Math.random() * 2);
+
+        ship.getShip().orientation = directions[z];
+        temp = createComp(x, y, ship);
+        fit = isFit(temp);
+      }
+
+      placeShip(x, y, ship);
+    });
+
+    return board;
+  };
+
   const receiveAttack = (x, y) => {
     if (board[x][y] === null) misses.push([x, y]);
     else {
@@ -128,7 +160,7 @@ const Gameboard = () => {
     receiveAttack,
     getMisses,
     isAllSunk,
-    isFit,
+    populateBd,
   };
 };
 
