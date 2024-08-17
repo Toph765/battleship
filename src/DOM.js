@@ -10,10 +10,11 @@ const renderShip = (player) => {
   const shipsList = Object.keys(shipsObj);
 
   shipsList.forEach((ship) => {
-    const xCoor = shipsObj[ship].getShip().xCoor;
-    const yCoor = shipsObj[ship].getShip().yCoor;
+    const comp = shipsObj[ship].getShip().comp;
 
-    if (xCoor !== null) {
+    if (comp.length !== 0) {
+      const xCoor = comp[0][0];
+      const yCoor = comp[0][1];
       player.board.placeShip(xCoor, yCoor, shipsObj[ship]);
     }
   });
@@ -274,6 +275,11 @@ const initSqrBtn = (player, square) => {
   });
 };
 
+const compMode = (player) => {
+  player.board.populateBd();
+  renderBoard(player);
+};
+
 export {
   renderBoard,
   grabPlayerShips,
@@ -281,4 +287,5 @@ export {
   renderForm,
   initFinSetup,
   initplayBtn,
+  compMode,
 };
