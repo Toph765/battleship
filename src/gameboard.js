@@ -40,7 +40,8 @@ const Gameboard = () => {
     let status = true;
 
     arr.forEach((item) => {
-      if (!isEmpty(item[0], item[1])) return (status = false);
+      if (item[0] > 9 || item[1] > 9 || !isEmpty(item[0], item[1]))
+        return (status = false);
     });
 
     return status;
