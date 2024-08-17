@@ -152,7 +152,8 @@ const initFinSetup = (player) => {
   let isAllPlaced = false;
 
   ships.forEach((ship) => {
-    if (ship.getShip().xCoor === null) return (isAllPlaced = false);
+    const comp = ship.getShip().comp;
+    if (comp.length !== 0) return (isAllPlaced = false);
     else isAllPlaced = true;
   });
 
@@ -160,7 +161,8 @@ const initFinSetup = (player) => {
     e.preventDefault();
 
     ships.forEach((ship) => {
-      if (ship.getShip().xCoor === null) return (isAllPlaced = false);
+      const comp = ship.getShip().comp;
+      if (comp.length !== 0) return (isAllPlaced = false);
       else isAllPlaced = true;
     });
 
