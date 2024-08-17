@@ -151,19 +151,13 @@ const initFinSetup = (player) => {
   const ships = Object.values(shipsObj);
   let isAllPlaced = false;
 
-  ships.forEach((ship) => {
-    const comp = ship.getShip().comp;
-    if (comp.length !== 0) return (isAllPlaced = false);
-    else isAllPlaced = true;
-  });
-
   button.addEventListener("click", (e) => {
     e.preventDefault();
 
     ships.forEach((ship) => {
       const comp = ship.getShip().comp;
-      if (comp.length !== 0) return (isAllPlaced = false);
-      else isAllPlaced = true;
+      if (comp.length === 0) return (isAllPlaced = false);
+      else return (isAllPlaced = true);
     });
 
     isAllPlaced
