@@ -50,7 +50,8 @@ input {
   grid-template-rows: repeat(10, 1fr);
 }
 
-.dialog {
+.dialog,
+#game_mode {
   position: absolute;
   top: 50%;
   left: 50%;
