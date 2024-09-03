@@ -16,6 +16,29 @@
   width: 600px;
 }
 
+.board {
+  display: flex;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.x_axis {
+  height: 20px;
+  width: 200px;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+}
+
+.y_axis {
+  height: 220px;
+  width: 20px;
+  display: grid;
+  grid-template-rows: repeat(10, 1fr);
+}
+
 main {
   display: flex;
   gap: 8px;
