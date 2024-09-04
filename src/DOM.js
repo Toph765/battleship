@@ -95,55 +95,6 @@ const initPlaceShip = (player) => {
   });
 };
 
-const renderForm = (player) => {
-  const playerNo = player.number;
-
-  const main = document.querySelector(`#player${playerNo}`);
-
-  const form = document.createElement("form");
-  const selection = document.createElement("select");
-  const orientation = document.createElement("select");
-  const inputX = document.createElement("input");
-  const inputY = document.createElement("input");
-  const button = document.createElement("button");
-  const cross = document.createElement("option");
-  const long = document.createElement("option");
-  const fin = document.createElement("button");
-
-  form.setAttribute("id", `player${playerNo}-form`);
-
-  selection.setAttribute("name", "ships");
-  selection.setAttribute("id", `player${playerNo}-ships`);
-
-  orientation.setAttribute("name", "orientation");
-  orientation.setAttribute("id", `player${playerNo}-orient`);
-
-  inputX.setAttribute("type", "text");
-  inputX.setAttribute("id", `player${playerNo}-x`);
-  inputX.setAttribute("name", "x-coor");
-  inputX.setAttribute("placeholder", "x");
-
-  inputY.setAttribute("type", "text");
-  inputY.setAttribute("id", `player${playerNo}-y`);
-  inputY.setAttribute("name", "y-coor");
-  inputY.setAttribute("placeholder", "y");
-
-  button.setAttribute("id", `placeShipBtn-${playerNo}`);
-  button.textContent = "Place";
-
-  fin.setAttribute("id", `player${playerNo}-finBtn`);
-  fin.textContent = "Finish set up";
-
-  cross.textContent = "horizontal";
-  long.textContent = "vertical";
-
-  orientation.append(cross, long);
-  form.append(selection, inputX, inputY, orientation, button, fin);
-  main.appendChild(form);
-
-  return main;
-};
-
 const initFinSetup = (player) => {
   const button = document.querySelector(`#player${player.number}-finBtn`);
   const form = document.querySelector(`#player${player.number}-form`);
@@ -280,7 +231,6 @@ export {
   renderBoard,
   grabPlayerShips,
   initPlaceShip,
-  renderForm,
   initFinSetup,
   initplayBtn,
   compMode,
