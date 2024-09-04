@@ -53,10 +53,21 @@
             <div id="boardOne"></div>
           </div>
         </div>
+        <form id="playerOne-form">
+          <select name="ships" id="playerOne-ships"></select>
+          <input type="number" id="playerOne-x" name="x-coor" min="0" max="9" placeholder="x">
+          <input type="number" id="playerOne-y" name="y-coor" min="0" max="9" placeholder="y">
+          <select name="orientation" id="playerOne-orient">
+            <option>horizontal</option>
+            <option>vertical</option>
+          </select>
+          <button id="placeShipBtn-One">Place</button>
+          <button id="playerOne-finBtn">Finish Set Up</button>
+        </form>
       </div>
       <div id="playerTwo">
         <div class="board">
-          <div class="y_axis">
+        <div class="y_axis">
               <div></div>
               <div>0</div>
               <div>1</div>
@@ -68,7 +79,7 @@
               <div>7</div>
               <div>8</div>
               <div>9</div>
-          </div>
+      </div>
           <div class="column">
             <div class="x_axis">
               <div>0</div>
@@ -85,6 +96,17 @@
             <div id="boardTwo"></div>
           </div>
         </div>
+        <form id="playerTwo-form">
+          <select name="ships" id="playerTwo-ships"></select>
+          <input type="number" id="playerTwo-x" name="x-coor" min="0" max="9" placeholder="x">
+          <input type="number" id="playerTwo-y" name="y-coor" min="0" max="9" placeholder="y">
+          <select name="orientation" id="playerTwo-orient">
+            <option>horizontal</option>
+            <option>vertical</option>
+          </select>
+          <button id="placeShipBtn-Two">Place</button>
+          <button id="playerTwo-finBtn">Finish Set Up</button>
+        </form>
       </div>
     </main>
     <script src="main.js"></script>
