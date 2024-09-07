@@ -229,6 +229,27 @@ const compMode = (player) => {
   renderBoard(player);
 };
 
+const autoAtk = (playOne, playTwo) => {
+  const dialog = document.querySelector(".dialog");
+  const board = playOne.board;
+  const boardList = board.getBoard();
+  let x = Math.floor(Math.random() * 10);
+  let y = Math.floor(Math.random() * 10);
+  let cont = true;
+
+  while (cont === true) {
+    setTimeout(board.receiveAttack(x, y), 400);
+    if (boardList[x][y] === null) {
+      renderPlayBd(playTwo);
+      cont = false;
+      dialog.showModal();
+    } else {
+      x = Math.floor(Math.random() * 10);
+      y = Math.floor(Math.random() * 10);
+    }
+  }
+};
+
 export {
   renderBoard,
   grabPlayerShips,
