@@ -97,7 +97,6 @@ const initPlaceShip = (player) => {
 
 const initFinSetup = (player) => {
   const main = document.querySelector("main");
-  const mode = main.getAttribute("class");
   const button = document.querySelector(`#player${player.number}-finBtn`);
   const form = document.querySelector(`#player${player.number}-form`);
   const shipsObj = player.board.getShips();
@@ -106,6 +105,8 @@ const initFinSetup = (player) => {
 
   button.addEventListener("click", (e) => {
     e.preventDefault();
+
+    const mode = main.getAttribute("class");
 
     ships.forEach((ship) => {
       const comp = ship.getShip().comp;
@@ -136,6 +137,7 @@ const hideBoard = (player) => {
 };
 
 const initplayBtn = (POne, PTwo) => {
+  const main = document.querySelector("main");
   const dialog = document.querySelector(".dialog");
   const playWindow = document.querySelector("#play-window");
   const playBtn = document.querySelector("#play");
@@ -150,10 +152,20 @@ const initplayBtn = (POne, PTwo) => {
       playWindow.setAttribute("data-id", `player-${POne.number}`);
       return dialog.close();
     } else if (player === "player-One") {
-      renderBoard(PTwo);
-      renderPlayBd(POne);
+      const mode = main.getAttribute("class");
       playWindow.setAttribute("data-id", `player-${PTwo.number}`);
-      return dialog.close();
+      console.log(mode);
+      if (mode === "pvc") {
+        console.log("werk");
+        renderBoard(PTwo);
+        renderPlayBd(POne);
+        autoAtk(POne, PTwo);
+        return dialog.close();
+      } else {
+        renderBoard(PTwo);
+        renderPlayBd(POne);
+        return dialog.close();
+      }
     }
   });
 };
@@ -238,7 +250,7 @@ const autoAtk = (playOne, playTwo) => {
   let cont = true;
 
   while (cont === true) {
-    setTimeout(board.receiveAttack(x, y), 400);
+    board.receiveAttack(x, y);
     if (boardList[x][y] === null) {
       renderPlayBd(playTwo);
       cont = false;
