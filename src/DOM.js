@@ -96,6 +96,8 @@ const initPlaceShip = (player) => {
 };
 
 const initFinSetup = (player) => {
+  const main = document.querySelector("main");
+  const mode = main.getAttribute("class");
   const button = document.querySelector(`#player${player.number}-finBtn`);
   const form = document.querySelector(`#player${player.number}-form`);
   const shipsObj = player.board.getShips();
@@ -117,7 +119,7 @@ const initFinSetup = (player) => {
 
     hideBoard(player);
 
-    if (player.number === "Two") {
+    if (mode === "pvc") {
       const dialog = document.querySelector(".dialog");
       dialog.showModal();
     }
