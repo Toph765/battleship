@@ -245,6 +245,7 @@ const autoAtk = (playOne, playTwo) => {
   const dialog = document.querySelector(".dialog");
   const board = playOne.board;
   const boardList = board.getBoard();
+  const playWindow = document.querySelector("#play-window");
   let x = Math.floor(Math.random() * 10);
   let y = Math.floor(Math.random() * 10);
   let cont = true;
@@ -252,10 +253,12 @@ const autoAtk = (playOne, playTwo) => {
   while (cont === true) {
     board.receiveAttack(x, y);
     if (boardList[x][y] === null) {
+      playWindow.setAttribute("data-id", `player-${playOne.number}`);
+      renderBoard(playOne);
       renderPlayBd(playTwo);
       cont = false;
-      dialog.showModal();
     } else {
+      console.log("continuing");
       x = Math.floor(Math.random() * 10);
       y = Math.floor(Math.random() * 10);
     }
