@@ -58,7 +58,7 @@ const renderBoard = (player) => {
       square.setAttribute("data-x", `${i}`);
       square.setAttribute("data-y", `${j}`);
 
-      fillSqr(board[i][j], square);
+      fillSqr(player, board[i][j], square, i, j);
 
       currentBoard.appendChild(square);
     }
