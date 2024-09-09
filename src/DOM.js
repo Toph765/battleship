@@ -1,6 +1,22 @@
-const fillSqr = (sqr, tag) => {
+const fillSqr = (player, sqr, tag, x, y) => {
+  const misses = player.board.getMisses();
+
   if (sqr === null) {
-    tag.setAttribute("style", "background-color: blue;");
+    if (
+      misses.find((item) => {
+        return item[0] === x && item[1] === y;
+      })
+    ) {
+      tag.setAttribute("style", "background-color: yellow;");
+    } else {
+      tag.setAttribute("style", "background-color: blue;");
+    }
+  } else if (
+    sqr.getShip().hitCoor.find((item) => {
+      return item[0] === x && item[1] === y;
+    })
+  ) {
+    tag.setAttribute("style", "background-color: red;");
   }
 };
 
