@@ -210,7 +210,7 @@ const renderPlayBd = (player) => {
         item !== null &&
         item.getShip().hitCount > 0 &&
         item.getShip().hitCoor.find((item) => {
-          return item[0] === `${i}` && item[1] === `${j}`;
+          return item[0] === i && item[1] === j;
         })
       ) {
         square.setAttribute("style", "background-color: red;");
@@ -219,7 +219,7 @@ const renderPlayBd = (player) => {
 
       if (
         misses.find((item) => {
-          return item[0] === `${i}` && item[1] === `${j}`;
+          return item[0] === i && item[1] === j;
         })
       ) {
         square.setAttribute("style", "background-color: green;");
