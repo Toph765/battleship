@@ -172,9 +172,6 @@ const initplayBtn = (POne, PTwo) => {
       playWindow.setAttribute("data-id", `player-${PTwo.number}`);
       console.log(mode);
       if (mode === "pvc") {
-        console.log("werk");
-        renderBoard(PTwo);
-        renderPlayBd(POne);
         autoAtk(POne, PTwo);
         return dialog.close();
       } else {
