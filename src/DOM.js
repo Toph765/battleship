@@ -258,7 +258,6 @@ const compMode = (player) => {
 };
 
 const autoAtk = (playOne, playTwo) => {
-  const dialog = document.querySelector(".dialog");
   const board = playOne.board;
   const boardList = board.getBoard();
   const playWindow = document.querySelector("#play-window");
@@ -268,6 +267,7 @@ const autoAtk = (playOne, playTwo) => {
 
   while (cont === true) {
     board.receiveAttack(x, y);
+
     if (boardList[x][y] === null) {
       playWindow.setAttribute("data-id", `player-${playOne.number}`);
       renderBoard(playOne);
