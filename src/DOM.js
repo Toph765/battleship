@@ -235,8 +235,8 @@ const initSqrBtn = (player, square) => {
   const board = player.board;
   const boardList = board.getBoard();
   const dialog = document.querySelector(".dialog");
-  const x = square.getAttribute("data-x");
-  const y = square.getAttribute("data-y");
+  const x = parseInt(square.getAttribute("data-x"));
+  const y = parseInt(square.getAttribute("data-y"));
 
   square.addEventListener("click", (e) => {
     e.preventDefault();
