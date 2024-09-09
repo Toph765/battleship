@@ -136,7 +136,7 @@ const initFinSetup = (player) => {
 
     hideBoard(player);
 
-    if (mode === "pvc") {
+    if (mode === "pvc" || player.number === "Two") {
       const dialog = document.querySelector(".dialog");
       dialog.showModal();
     }
