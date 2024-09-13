@@ -132,15 +132,16 @@ const initFinSetup = (player) => {
       else return (isAllPlaced = true);
     });
 
-    isAllPlaced
-      ? form.setAttribute("style", "display: none;")
-      : console.log("Please place all the ships first");
+    if (isAllPlaced) {
+      form.setAttribute("style", "display: none;");
+      hideBoard(player);
 
-    hideBoard(player);
-
-    if (mode === "pvc" || player.number === "Two") {
-      const dialog = document.querySelector(".dialog");
-      dialog.showModal();
+      if (mode === "pvc" || player.number === "Two") {
+        const dialog = document.querySelector(".dialog");
+        dialog.showModal();
+      }
+    } else {
+      alert("Please place all the ships first");
     }
   });
 };
