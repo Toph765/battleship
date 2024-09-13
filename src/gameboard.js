@@ -3,6 +3,7 @@ import { Ship } from "./ship";
 const Gameboard = () => {
   let board = [];
   let misses = [];
+  let hits = [];
 
   let allShips = {
     l_ship: Ship(4),
