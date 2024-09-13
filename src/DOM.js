@@ -257,12 +257,27 @@ const compMode = (player) => {
 const autoAtk = (playOne, playTwo) => {
   const board = playOne.board;
   const boardList = board.getBoard();
+  const misses = board.getMisses();
+  const hits = board.getHits();
   const playWindow = document.querySelector("#play-window");
   let x = Math.floor(Math.random() * 10);
   let y = Math.floor(Math.random() * 10);
   let cont = true;
 
   while (cont === true) {
+    if (
+      misses.find((item) => {
+        return item[0] === x && item[1] === y;
+      }) ||
+      hits.find((item) => {
+        return item[0] === x && item[1] === y;
+      })
+    ) {
+      x = Math.floor(Math.random() * 10);
+      y = Math.floor(Math.random() * 10);
+      continue;
+    }
+
     board.receiveAttack(x, y);
 
     if (boardList[x][y] === null) {
