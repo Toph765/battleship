@@ -76,7 +76,7 @@ const Gameboard = () => {
     let status = true;
 
     if (y + length - 1 > 9 || x > 9 || x + length - 1 > 9 || y > 9) {
-      return console.log("error");
+      return alert("Ship is out of bound");
     } else {
       temp = createComp(x, y, ship);
       status = isFit(temp);
@@ -85,7 +85,7 @@ const Gameboard = () => {
     if (status === false) {
       status = true;
       temp = [];
-      return console.log("not empty");
+      return alert("square is already occupied");
     } else {
       ship.getShip().comp = temp;
 
