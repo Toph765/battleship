@@ -104,10 +104,12 @@ const initPlaceShip = (player) => {
     const ship = player.board.getShips()[shipName];
 
     ship.getShip().orientation = orient;
-    console.log(orient);
 
-    player.board.placeShip(xCoor, yCoor, ship);
-    renderBoard(player);
+    if (Number.isNaN(xCoor) || Number.isNaN(yCoor)) return;
+    else {
+      player.board.placeShip(xCoor, yCoor, ship);
+      renderBoard(player);
+    }
   });
 };
 
