@@ -255,6 +255,7 @@ const initSqrBtn = (player, square) => {
 const compMode = (player) => {
   player.board.populateBd();
   renderBoard(player);
+  hideBoard(player);
 };
 
 const autoAtk = (playOne, playTwo) => {
@@ -289,7 +290,6 @@ const autoAtk = (playOne, playTwo) => {
       renderPlayBd(playTwo);
       cont = false;
     } else {
-      console.log("continuing");
       x = Math.floor(Math.random() * 10);
       y = Math.floor(Math.random() * 10);
     }
