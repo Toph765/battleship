@@ -160,6 +160,7 @@ const Gameboard = () => {
     getShips,
     receiveAttack,
     getMisses,
+    getHits,
     isAllSunk,
     populateBd,
   };
