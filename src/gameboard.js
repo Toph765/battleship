@@ -132,6 +132,7 @@ const Gameboard = () => {
   const receiveAttack = (x, y) => {
     if (board[x][y] === null) misses.push([x, y]);
     else {
+      hits.push([x, y]);
       board[x][y].hit();
       board[x][y].getShip().hitCoor.push([x, y]);
     }
