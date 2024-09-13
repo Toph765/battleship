@@ -21,6 +21,7 @@ const Gameboard = () => {
   const getBoard = () => board;
   const getMisses = () => misses;
   const getShips = () => allShips;
+  const getHits = () => hits;
 
   const createBoard = () => {
     for (let i = 0; i < 10; i++) {
