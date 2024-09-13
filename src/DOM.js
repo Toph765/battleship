@@ -173,7 +173,6 @@ const initplayBtn = (POne, PTwo) => {
     } else if (player === "player-One") {
       const mode = main.getAttribute("class");
       playWindow.setAttribute("data-id", `player-${PTwo.number}`);
-      console.log(mode);
       if (mode === "pvc") {
         autoAtk(POne, PTwo);
         return dialog.close();
