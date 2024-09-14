@@ -19,14 +19,11 @@ pvpBtn.addEventListener("click", (e) => {
   renderBoard(playerOne);
   renderBoard(playerTwo);
 
-  grabPlayerShips(playerOne);
-  grabPlayerShips(playerTwo);
+  grabPlayerShips(playerOne, playerTwo);
 
-  initPlaceShip(playerOne);
-  initPlaceShip(playerTwo);
+  initPlaceShip(playerOne, playerTwo);
 
-  initFinSetup(playerOne);
-  initFinSetup(playerTwo);
+  initFinSetup(playerOne, playerTwo);
 
   initplayBtn(playerOne, playerTwo);
 
@@ -37,19 +34,16 @@ pvcBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
   const main = document.querySelector("main");
-  const form = document.querySelector("#playerTwo-form");
 
   renderBoard(playerOne);
   renderBoard(playerTwo);
-  grabPlayerShips(playerOne);
-  initPlaceShip(playerOne);
-  initFinSetup(playerOne);
-  initFinSetup(playerTwo);
+  grabPlayerShips(playerOne, playerTwo);
+  initPlaceShip(playerOne, playerTwo);
+  initFinSetup(playerOne, playerTwo);
   initplayBtn(playerOne, playerTwo);
 
   compMode(playerTwo);
 
-  form.setAttribute("style", "display: none;");
   main.classList.add("pvc");
 
   return gameMode.close();
