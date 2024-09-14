@@ -67,10 +67,15 @@ const renderBoard = (player) => {
   return currentBoard;
 };
 
-const grabPlayerShips = (player) => {
-  const shipsObj = player.board.getShips();
+const grabPlayerShips = (pOne, pTwo) => {
+  const form = document.querySelector("form");
+  const id = form.getAttribute("id");
+  let shipsObj;
+  id === "playerOne-form"
+    ? (shipsObj = pOne.board.getShips())
+    : pTwo.board.getShips();
   const ships = Object.keys(shipsObj);
-  const selection = document.querySelector(`#player${player.number}-ships`);
+  const selection = document.querySelector(`#ships`);
 
   ships.forEach((ship) => {
     const option = document.createElement("option");
