@@ -81,34 +81,37 @@ const grabPlayerShips = (player) => {
   return selection;
 };
 
-const initPlaceShip = (player) => {
-  const button = document.querySelector(`#placeShipBtn-${player.number}`);
+const initPlaceShip = (pOne, pTwo) => {
+  const button = document.querySelector(`#placeShipBtn`);
 
   button.addEventListener("click", (e) => {
     e.preventDefault();
 
-    const xCoor = parseInt(
-      document.querySelector(`#player${player.number}-y`).value
-    );
-    const yCoor = parseInt(
-      document.querySelector(`#player${player.number}-x`).value
-    );
-    const shipName = document.querySelector(
-      `#player${player.number}-ships`
-    ).value;
+    const form = document.querySelector("form");
+    let id = form.getAttribute("id");
 
-    const orient = document.querySelector(
-      `#player${player.number}-orient`
-    ).value;
+    const xCoor = parseInt(document.querySelector(`#y-coor`).value);
+    const yCoor = parseInt(document.querySelector(`#x-coor`).value);
+    const shipName = document.querySelector(`#ships`).value;
 
-    const ship = player.board.getShips()[shipName];
+    const orient = document.querySelector(`#orientation`).value;
+
+    let ship;
+    id === "playerOne-form"
+      ? (ship = pOne.board.getShips()[shipName])
+      : (ship = pTwo.board.getShips()[shipName]);
 
     ship.getShip().orientation = orient;
 
     if (Number.isNaN(xCoor) || Number.isNaN(yCoor)) return;
     else {
-      player.board.placeShip(xCoor, yCoor, ship);
-      renderBoard(player);
+      if (id === "playerOne-form") {
+        pOne.board.placeShip(xCoor, yCoor, ship);
+        renderBoard(pOne);
+      } else {
+        pTwo.board.placeShip(xCoor, yCoor, ship);
+        renderBoard(pTwo);
+      }
     }
   });
 };
