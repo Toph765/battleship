@@ -116,18 +116,25 @@ const initPlaceShip = (pOne, pTwo) => {
   });
 };
 
-const initFinSetup = (player) => {
+const initFinSetup = (pOne, pTwo) => {
   const main = document.querySelector("main");
-  const button = document.querySelector(`#player${player.number}-finBtn`);
-  const form = document.querySelector(`#player${player.number}-form`);
-  const shipsObj = player.board.getShips();
-  const ships = Object.values(shipsObj);
+  const button = document.querySelector(`#finBtn`);
+  const form = document.querySelector(`form`);
+
   let isAllPlaced = false;
 
   button.addEventListener("click", (e) => {
     e.preventDefault();
 
+    let shipsObj;
     const mode = main.getAttribute("class");
+    let id = form.getAttribute("id");
+
+    id === "playerOne-form"
+      ? (shipsObj = pOne.board.getShips())
+      : (shipsObj = pTwo.board.getShips());
+
+    const ships = Object.values(shipsObj);
 
     ships.forEach((ship) => {
       const comp = ship.getShip().comp;
@@ -136,10 +143,14 @@ const initFinSetup = (player) => {
     });
 
     if (isAllPlaced) {
-      form.setAttribute("style", "display: none;");
-      hideBoard(player);
+      if (id === "playerOne-form") {
+        form.setAttribute("id", "playerTwo-form");
+        hideBoard(pOne);
+      }
 
-      if (mode === "pvc" || player.number === "Two") {
+      if (mode === "pvc" || id === "playerTwo-form") {
+        form.setAttribute("style", "display: none;");
+        hideBoard(pTwo);
         const dialog = document.querySelector(".dialog");
         dialog.showModal();
       }
