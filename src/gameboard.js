@@ -142,12 +142,12 @@ const Gameboard = () => {
 
   const isAllSunk = () => {
     const ships = Object.values(allShips);
-    let status = false;
+    let status = true;
 
     ships.forEach((ship) => {
-      if (ship.getShip().sunk === false) {
+      if (!ship.isSunk()) {
         return (status = false);
-      } else status = true;
+      }
     });
 
     return status;
