@@ -255,6 +255,8 @@ const initSqrBtn = (player, square) => {
   const dialog = document.querySelector(".dialog");
   const x = parseInt(square.getAttribute("data-x"));
   const y = parseInt(square.getAttribute("data-y"));
+  const winner = document.querySelector(".player");
+  const endMsg = document.querySelector(".end-game");
 
   square.addEventListener("click", (e) => {
     e.preventDefault();
@@ -266,6 +268,15 @@ const initSqrBtn = (player, square) => {
       dialog.showModal();
     } else {
       square.setAttribute("style", "background-color: green;");
+
+      if (player.board.isAllSunk()) {
+        endMsg.showModal();
+        if (player.number === "One") {
+          winner.textContent = `Congratulations Player Two!`;
+        } else {
+          winner.textContent = `Congratulations Player One!`;
+        }
+      }
     }
   });
 };
