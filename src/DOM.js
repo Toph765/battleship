@@ -73,7 +73,7 @@ const grabPlayerShips = (pOne, pTwo) => {
   let shipsObj;
   id === "playerOne-form"
     ? (shipsObj = pOne.board.getShips())
-    : pTwo.board.getShips();
+    : (shipsObj = pTwo.board.getShips());
   const ships = Object.keys(shipsObj);
   const selection = document.querySelector(`#ships`);
 
