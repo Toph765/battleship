@@ -153,6 +153,17 @@ const Gameboard = () => {
     return status;
   };
 
+  const resetBoard = () => {
+    const keys = Object.keys(allShips);
+    board = [];
+    misses = [];
+    hits = [];
+
+    keys.forEach((ship) => {
+      allShips[ship].resetShip();
+    });
+  };
+
   return {
     createBoard,
     placeShip,
@@ -163,6 +174,7 @@ const Gameboard = () => {
     getHits,
     isAllSunk,
     populateBd,
+    resetBoard,
   };
 };
 
