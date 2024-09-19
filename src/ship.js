@@ -19,10 +19,22 @@ const Ship = (n) => {
     return shipObj.sunk === true ? true : false;
   };
 
+  const resetShip = () => {
+    shipObj.length = n;
+    shipObj.hitCount = 0;
+    shipObj.sunk = false;
+    shipObj.orientation = "horizontal";
+    shipObj.comp = [];
+    shipObj.hitCoor = [];
+
+    return shipObj;
+  };
+
   return {
     getShip,
     hit,
     isSunk,
+    resetShip,
   };
 };
 
