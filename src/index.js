@@ -16,28 +16,24 @@ const form = document.querySelector("form");
 let playerOne = Player("One");
 let playerTwo = Player("Two");
 
+initPlaceShip(playerOne, playerTwo);
+initFinSetup(playerOne, playerTwo);
+initplayBtn(playerOne, playerTwo);
+
 pvpBtn.addEventListener("click", (e) => {
   e.preventDefault();
   renderBoard(playerOne);
   renderBoard(playerTwo);
-
-  initPlaceShip(playerOne, playerTwo);
-  initFinSetup(playerOne, playerTwo);
-  initplayBtn(playerOne, playerTwo);
 
   return gameMode.close();
 });
 
 pvcBtn.addEventListener("click", (e) => {
   e.preventDefault();
-
   const main = document.querySelector("main");
 
   renderBoard(playerOne);
   renderBoard(playerTwo);
-  initPlaceShip(playerOne, playerTwo);
-  initFinSetup(playerOne, playerTwo);
-  initplayBtn(playerOne, playerTwo);
 
   compMode(playerTwo);
 
