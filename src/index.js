@@ -10,8 +10,11 @@ import {
 const gameMode = document.querySelector(".game_mode");
 const pvpBtn = document.querySelector("#pvp");
 const pvcBtn = document.querySelector("#pvc");
-const playerOne = Player("One");
-const playerTwo = Player("Two");
+const restartBtn = document.querySelectorAll(".restart");
+const endMsg = document.querySelector(".end-game");
+const form = document.querySelector("form");
+let playerOne = Player("One");
+let playerTwo = Player("Two");
 
 pvpBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -19,9 +22,7 @@ pvpBtn.addEventListener("click", (e) => {
   renderBoard(playerTwo);
 
   initPlaceShip(playerOne, playerTwo);
-
   initFinSetup(playerOne, playerTwo);
-
   initplayBtn(playerOne, playerTwo);
 
   return gameMode.close();
@@ -44,5 +45,19 @@ pvcBtn.addEventListener("click", (e) => {
 
   return gameMode.close();
 });
+
+restartBtn.forEach((button) =>
+  button.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    endMsg.close();
+    form.setAttribute("id", "playerOne-form");
+    form.removeAttribute("style");
+
+    playerOne.board.resetBoard();
+    playerTwo.board.resetBoard();
+    gameMode.showModal();
+  })
+);
 
 document.addEventListener("onload", gameMode.showModal());
