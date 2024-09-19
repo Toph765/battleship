@@ -67,25 +67,6 @@ const renderBoard = (player) => {
   return currentBoard;
 };
 
-const grabPlayerShips = (pOne, pTwo) => {
-  const form = document.querySelector("form");
-  const id = form.getAttribute("id");
-  let shipsObj;
-  id === "playerOne-form"
-    ? (shipsObj = pOne.board.getShips())
-    : (shipsObj = pTwo.board.getShips());
-  const ships = Object.keys(shipsObj);
-  const selection = document.querySelector(`#ships`);
-
-  ships.forEach((ship) => {
-    const option = document.createElement("option");
-    option.textContent = ship;
-    selection.appendChild(option);
-  });
-
-  return selection;
-};
-
 const initPlaceShip = (pOne, pTwo) => {
   const button = document.querySelector(`#placeShipBtn`);
 
@@ -325,11 +306,4 @@ const autoAtk = (playOne, playTwo) => {
   }
 };
 
-export {
-  renderBoard,
-  grabPlayerShips,
-  initPlaceShip,
-  initFinSetup,
-  initplayBtn,
-  compMode,
-};
+export { renderBoard, initPlaceShip, initFinSetup, initplayBtn, compMode };
