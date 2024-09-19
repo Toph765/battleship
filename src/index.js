@@ -1,7 +1,6 @@
 import { Player } from "./player";
 import {
   renderBoard,
-  grabPlayerShips,
   initPlaceShip,
   initFinSetup,
   initplayBtn,
@@ -19,8 +18,6 @@ pvpBtn.addEventListener("click", (e) => {
   renderBoard(playerOne);
   renderBoard(playerTwo);
 
-  grabPlayerShips(playerOne, playerTwo);
-
   initPlaceShip(playerOne, playerTwo);
 
   initFinSetup(playerOne, playerTwo);
@@ -37,7 +34,6 @@ pvcBtn.addEventListener("click", (e) => {
 
   renderBoard(playerOne);
   renderBoard(playerTwo);
-  grabPlayerShips(playerOne, playerTwo);
   initPlaceShip(playerOne, playerTwo);
   initFinSetup(playerOne, playerTwo);
   initplayBtn(playerOne, playerTwo);
