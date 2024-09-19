@@ -26,6 +26,9 @@
       <div class="player"></div>
       <button class="restart">Restart</button>
     </dialog>
+    <header>
+      <button class="restart">Restart</button>
+    </header>
     <main>
       <div id="playerOne">
         <div class="board">
@@ -93,7 +96,18 @@
       </div>
     </main>
     <form id="playerOne-form">
-          <select name="ships" id="ships"></select>
+          <select name="ships" id="ships">
+            <option>battleship</option>
+            <option>cruiser_I</option>
+            <option>cruiser_II</option>
+            <option>destroyer_I</option>
+            <option>destroyer_II</option>
+            <option>destroyer_III</option>
+            <option>submarine_I</option>
+            <option>submarine_II</option>
+            <option>submarine_III</option>
+            <option>submarine_IV</option>
+          </select>
           <input type="number" id="x-coor" name="x-coor" min="0" max="9" placeholder="x">
           <input type="number" id="y-coor" name="y-coor" min="0" max="9" placeholder="y">
           <select name="orientation" id="orientation">
