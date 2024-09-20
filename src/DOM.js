@@ -274,6 +274,8 @@ const autoAtk = (playOne, playTwo) => {
   const misses = board.getMisses();
   const hits = board.getHits();
   const playWindow = document.querySelector("#play-window");
+  const winner = document.querySelector(".winner");
+  const endMsg = document.querySelector(".end-game");
   let x = Math.floor(Math.random() * 10);
   let y = Math.floor(Math.random() * 10);
   let cont = true;
@@ -300,8 +302,14 @@ const autoAtk = (playOne, playTwo) => {
       renderPlayBd(playTwo);
       cont = false;
     } else {
-      x = Math.floor(Math.random() * 10);
-      y = Math.floor(Math.random() * 10);
+      if (playOne.board.isAllSunk()) {
+        cont = false;
+        endMsg.showModal();
+        winner.textContent = "Computer won!";
+      } else {
+        x = Math.floor(Math.random() * 10);
+        y = Math.floor(Math.random() * 10);
+      }
     }
   }
 };
