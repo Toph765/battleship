@@ -236,7 +236,7 @@ const initSqrBtn = (player, square) => {
   const dialog = document.querySelector(".dialog");
   const x = parseInt(square.getAttribute("data-x"));
   const y = parseInt(square.getAttribute("data-y"));
-  const winner = document.querySelector(".player");
+  const winner = document.querySelector(".winner");
   const endMsg = document.querySelector(".end-game");
 
   square.addEventListener("click", (e) => {
