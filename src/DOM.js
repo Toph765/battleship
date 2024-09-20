@@ -245,12 +245,13 @@ const initSqrBtn = (player, square) => {
     board.receiveAttack(x, y);
     if (boardList[x][y] === null) {
       hideBoard(player);
-      square.setAttribute("style", "background-color: red;");
+      square.setAttribute("style", "background-color: yellow;");
       dialog.showModal();
     } else {
-      square.setAttribute("style", "background-color: green;");
+      square.setAttribute("style", "background-color: red;");
 
       if (player.board.isAllSunk()) {
+        square.setAttribute("style", "background-color: red;");
         endMsg.showModal();
         if (player.number === "One") {
           winner.textContent = `Congratulations Player Two!`;
