@@ -106,6 +106,7 @@ const initFinSetup = (pOne, pTwo) => {
   const main = document.querySelector("main");
   const button = document.querySelector(`#finBtn`);
   const form = document.querySelector(`form`);
+  const playerName = document.querySelector(".player-name");
 
   let isAllPlaced = false;
 
@@ -138,6 +139,7 @@ const initFinSetup = (pOne, pTwo) => {
         form.setAttribute("style", "display: none;");
         hideBoard(pTwo);
         const dialog = document.querySelector(".dialog");
+        playerName.textContent = "Player One`s turn!";
         dialog.showModal();
       }
     } else {
