@@ -47,15 +47,27 @@ restartBtn.forEach((button) =>
     e.preventDefault();
     const main = document.querySelector("main");
     const window = document.querySelector("#play-window");
+    const x = document.querySelector("#x-coor");
+    const y = document.querySelector("#y-coor");
+    const opt = document.querySelector("#battleship");
 
     endMsg.close();
+
     form.setAttribute("id", "playerOne-form");
     form.removeAttribute("style");
     main.classList.remove("pvc");
     window.setAttribute("data-id", "player-Two");
 
+    x.value = "";
+    y.value = "";
+    opt.removeAttribute("selected");
+    opt.setAttribute("selected", "");
+
     playerOne.board.resetBoard();
     playerTwo.board.resetBoard();
+
+    renderBoard(playerOne);
+    renderBoard(playerTwo);
     gameMode.showModal();
   })
 );
