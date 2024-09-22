@@ -45,10 +45,14 @@ pvcBtn.addEventListener("click", (e) => {
 restartBtn.forEach((button) =>
   button.addEventListener("click", (e) => {
     e.preventDefault();
+    const main = document.querySelector("main");
+    const window = document.querySelector("#play-window");
 
     endMsg.close();
     form.setAttribute("id", "playerOne-form");
     form.removeAttribute("style");
+    main.classList.remove("pvc");
+    window.setAttribute("data-id", "player-Two");
 
     playerOne.board.resetBoard();
     playerTwo.board.resetBoard();
