@@ -238,14 +238,20 @@ const initSqrBtn = (player, square) => {
   const y = parseInt(square.getAttribute("data-y"));
   const winner = document.querySelector(".winner");
   const endMsg = document.querySelector(".end-game");
+  const window = document.querySelector("#play-window");
+  const playerName = document.querySelector(".player-name");
 
   square.addEventListener("click", (e) => {
     e.preventDefault();
+    const id = window.getAttribute("data-id");
 
     board.receiveAttack(x, y);
     if (boardList[x][y] === null) {
       hideBoard(player);
       square.setAttribute("style", "background-color: yellow;");
+      id === "player-One"
+        ? (playerName.textContent = "Player Two`s turn!")
+        : (playerName.textContent = "Player One`s turn!");
       dialog.showModal();
     } else {
       square.setAttribute("style", "background-color: red;");
