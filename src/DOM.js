@@ -242,18 +242,26 @@ const initSqrBtn = (player, square) => {
   const endMsg = document.querySelector(".end-game");
   const window = document.querySelector("#play-window");
   const playerName = document.querySelector(".player-name");
+  const main = document.querySelector("main");
 
   square.addEventListener("click", (e) => {
     e.preventDefault();
     const id = window.getAttribute("data-id");
+    const mode = main.getAttribute("class");
 
     board.receiveAttack(x, y);
     if (boardList[x][y] === null) {
       hideBoard(player);
       square.setAttribute("style", "background-color: yellow;");
-      id === "player-One"
-        ? (playerName.textContent = "Player Two`s turn!")
-        : (playerName.textContent = "Player One`s turn!");
+
+      if (mode === "pvc") {
+        playerName.textContent = "Computer`s turn!";
+      } else {
+        id === "player-One"
+          ? (playerName.textContent = "Player Two`s turn!")
+          : (playerName.textContent = "Player One`s turn!");
+      }
+
       dialog.showModal();
     } else {
       square.setAttribute("style", "background-color: red;");
