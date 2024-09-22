@@ -19,21 +19,17 @@ let playerTwo = Player("Two");
 initPlaceShip(playerOne, playerTwo);
 initFinSetup(playerOne, playerTwo);
 initplayBtn(playerOne, playerTwo);
+renderBoard(playerOne);
+renderBoard(playerTwo);
 
 pvpBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  renderBoard(playerOne);
-  renderBoard(playerTwo);
-
   return gameMode.close();
 });
 
 pvcBtn.addEventListener("click", (e) => {
   e.preventDefault();
   const main = document.querySelector("main");
-
-  renderBoard(playerOne);
-  renderBoard(playerTwo);
 
   compMode(playerTwo);
 
