@@ -130,6 +130,15 @@ const initFinSetup = (pOne, pTwo) => {
     });
 
     if (isAllPlaced) {
+      const x = document.querySelector("#x-coor");
+      const y = document.querySelector("#y-coor");
+      const opt = document.querySelector("#battleship");
+
+      x.value = "";
+      y.value = "";
+      opt.removeAttribute("selected");
+      opt.setAttribute("selected", "");
+
       if (id === "playerOne-form") {
         form.setAttribute("id", "playerTwo-form");
         hideBoard(pOne);
