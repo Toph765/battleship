@@ -5,6 +5,7 @@ import {
   initFinSetup,
   initplayBtn,
   compMode,
+  initRandBtn,
 } from "./DOM";
 
 const gameMode = document.querySelector(".game_mode");
@@ -19,6 +20,7 @@ let playerTwo = Player("Two");
 initPlaceShip(playerOne, playerTwo);
 initFinSetup(playerOne, playerTwo);
 initplayBtn(playerOne, playerTwo);
+initRandBtn(playerOne, playerTwo);
 renderBoard(playerOne);
 renderBoard(playerTwo);
 
