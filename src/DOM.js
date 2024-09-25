@@ -340,4 +340,30 @@ const autoAtk = (playOne, playTwo) => {
   }
 };
 
-export { renderBoard, initPlaceShip, initFinSetup, initplayBtn, compMode };
+const initRandBtn = (pOne, pTwo) => {
+  const form = document.querySelector("form");
+  const randBtn = document.querySelector("#random");
+
+  randBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const id = form.getAttribute("id");
+
+    if (id === "playerOne-form") {
+      pOne.board.populateBd();
+      renderBoard(pOne);
+    } else {
+      pTwo.board.populateBd();
+      renderBoard(pTwo);
+    }
+  });
+};
+
+export {
+  renderBoard,
+  initPlaceShip,
+  initFinSetup,
+  initplayBtn,
+  compMode,
+  initRandBtn,
+};
