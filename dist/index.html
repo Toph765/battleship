@@ -100,7 +100,9 @@
         </div>
       </div>
     </main>
+    <div class="form-container">
     <form id="playerOne-form">
+      <div class="form-left">
           <select name="ships" id="ships">
             <option id="battleship">battleship</option>
             <option>cruiser_I</option>
@@ -113,6 +115,10 @@
             <option>submarine_III</option>
             <option>submarine_IV</option>
           </select>
+          <div class="shape"></div>
+      </div>
+      <div class="form-right">
+          <button id="random">Randomize</button>
           <input type="number" id="x-coor" name="x-coor" min="0" max="9" placeholder="x">
           <input type="number" id="y-coor" name="y-coor" min="0" max="9" placeholder="y">
           <select name="orientation" id="orientation">
@@ -120,9 +126,10 @@
             <option>vertical</option>
           </select>
           <button id="placeShipBtn">Place</button>
-          <button id="random">Randomize</button>
           <button id="finBtn">Finish Set Up</button>
+      </div>
         </form>
+    </div>
     <script src="main.js"></script>
   </body>
 </html>
