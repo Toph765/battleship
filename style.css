@@ -4,16 +4,30 @@
   box-sizing: border-box;
 }
 
+header {
+  display: flex;
+  justify-content: space-between;
+  gap: 5rem;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+#playerOne,
+#playerTwo {
+  display: flex;
+  justify-content: center;
+  width: 600px;
+}
+
 .One-square,
 .Two-square {
   height: 20px;
   width: 20px;
   border: 1px solid black;
-}
-
-#playerOne,
-#playerTwo {
-  width: 600px;
 }
 
 .board {
@@ -39,14 +53,21 @@
   grid-template-rows: repeat(10, 1fr);
 }
 
-main {
+.form-container {
   display: flex;
-  gap: 8px;
+  justify-content: center;
 }
 
 form {
+  width: 300px;
   display: flex;
+  justify-content: center;
   gap: 2px;
+}
+
+.form-right {
+  display: flex;
+  flex-direction: column;
 }
 
 input {
