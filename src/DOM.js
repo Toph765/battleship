@@ -178,7 +178,7 @@ const initplayBtn = (POne, PTwo) => {
 
     if (player === "player-Two") {
       renderBoard(POne);
-      renderPlayBd(PTwo);
+      renderPlayBd(POne, PTwo, player);
       playWindow.setAttribute("data-id", `player-${POne.number}`);
       return dialog.close();
     } else if (player === "player-One") {
@@ -189,17 +189,27 @@ const initplayBtn = (POne, PTwo) => {
         return dialog.close();
       } else {
         renderBoard(PTwo);
-        renderPlayBd(POne);
+        renderPlayBd(POne, PTwo, player);
         return dialog.close();
       }
     }
   });
 };
 
-const renderPlayBd = (player) => {
-  const board = player.board.getBoard();
-  const misses = player.board.getMisses();
-  const currBoard = document.querySelector(`#board${player.number}`);
+const renderPlayBd = (pOne, pTwo, id) => {
+  let board;
+  let misses;
+  let currBoard;
+
+  if (id === "player-Two") {
+    board = pTwo.board.getBoard();
+    misses = pTwo.board.getMisses();
+    currBoard = document.querySelector(`#board${pTwo.number}`);
+  } else {
+    board = pOne.board.getBoard();
+    misses = pOne.board.getMisses();
+    currBoard = document.querySelector(`#board${pOne.number}`);
+  }
 
   while (currBoard.lastElementChild)
     currBoard.removeChild(currBoard.lastElementChild);
@@ -209,12 +219,16 @@ const renderPlayBd = (player) => {
       const item = board[i][j];
 
       const square = document.createElement("button");
-      square.classList.add(`${player.number}-square`);
+      if (id === "player-One") {
+        square.classList.add(`${pOne.number}-square`);
+      } else {
+        square.classList.add(`${pTwo.number}-square`);
+      }
 
       square.setAttribute("data-x", `${i}`);
       square.setAttribute("data-y", `${j}`);
 
-      initSqrBtn(player, square);
+      initSqrBtn(pOne, pTwo, square);
 
       if (
         item !== null &&
@@ -241,9 +255,7 @@ const renderPlayBd = (player) => {
   }
 };
 
-const initSqrBtn = (player, square) => {
-  const board = player.board;
-  const boardList = board.getBoard();
+const initSqrBtn = (pOne, pTwo, square) => {
   const dialog = document.querySelector(".dialog");
   const x = parseInt(square.getAttribute("data-x"));
   const y = parseInt(square.getAttribute("data-y"));
@@ -255,12 +267,28 @@ const initSqrBtn = (player, square) => {
 
   square.addEventListener("click", (e) => {
     e.preventDefault();
+    const squareId = square.getAttribute("class");
     const id = window.getAttribute("data-id");
     const mode = main.getAttribute("class");
+    let board;
+    let boardList;
+
+    if (squareId === "One-square") {
+      board = pOne.board;
+    } else {
+      board = pTwo.board;
+    }
+
+    boardList = board.getBoard();
 
     board.receiveAttack(x, y);
     if (boardList[x][y] === null) {
-      hideBoard(player);
+      if (squareId === "One-square") {
+        hideBoard(pTwo);
+      } else {
+        hideBoard(pOne);
+      }
+
       square.setAttribute("style", "background-color: yellow;");
 
       if (mode === "pvc") {
@@ -275,10 +303,10 @@ const initSqrBtn = (player, square) => {
     } else {
       square.setAttribute("style", "background-color: red;");
 
-      if (player.board.isAllSunk()) {
+      if (board.isAllSunk()) {
         square.setAttribute("style", "background-color: red;");
         endMsg.showModal();
-        if (player.number === "One") {
+        if (id === "player-Two") {
           winner.textContent = `Congratulations Player Two!`;
         } else {
           winner.textContent = `Congratulations Player One!`;
@@ -323,9 +351,10 @@ const autoAtk = (playOne, playTwo) => {
     board.receiveAttack(x, y);
 
     if (boardList[x][y] === null) {
+      const id = `player-${playTwo.number}`;
       playWindow.setAttribute("data-id", `player-${playOne.number}`);
       renderBoard(playOne);
-      renderPlayBd(playTwo);
+      renderPlayBd(playOne, playTwo, id);
       cont = false;
     } else {
       if (playOne.board.isAllSunk()) {
