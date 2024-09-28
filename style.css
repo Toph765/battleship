@@ -16,6 +16,20 @@ main {
   gap: 8px;
 }
 
+.shiplist-One,
+.shiplist-Two {
+  display: flex;
+  flex-direction: column;
+}
+
+.shiplist-Two > .ship-cont {
+  justify-content: flex-end;
+}
+
+.ship-cont {
+  display: flex;
+}
+
 #playerOne,
 #playerTwo {
   display: flex;
@@ -63,6 +77,17 @@ form {
   display: flex;
   justify-content: center;
   gap: 2px;
+}
+
+.shape {
+  display: flex;
+}
+
+.square {
+  width: 15px;
+  height: 15px;
+  border: 1px solid black;
+  background-color: aquamarine;
 }
 
 .form-right {
