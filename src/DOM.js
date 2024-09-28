@@ -301,6 +301,11 @@ const initSqrBtn = (pOne, pTwo, square) => {
 
       dialog.showModal();
     } else {
+      if (squareId === "One-square") {
+        updateShiplist(boardList[x][y], pOne.number);
+      } else {
+        updateShiplist(boardList[x][y], pTwo.number);
+      }
       square.setAttribute("style", "background-color: red;");
 
       if (board.isAllSunk()) {
@@ -362,6 +367,7 @@ const autoAtk = (playOne, playTwo) => {
         endMsg.showModal();
         winner.textContent = "Computer won!";
       } else {
+        updateShiplist(playOne.board.getBoard()[x][y], playOne.number);
         x = Math.floor(Math.random() * 10);
         y = Math.floor(Math.random() * 10);
       }
@@ -400,6 +406,20 @@ const renderShape = (player) => {
     const square = document.createElement("div");
     square.classList.add("square");
     shapeCont.appendChild(square);
+  }
+};
+
+const updateShiplist = (ship, number) => {
+  const name = ship.getShip().name;
+  const shipsList = document.querySelector(`.shiplist-${number}`);
+  const shipCont = shipsList.querySelector(`.${name}`);
+  const squares = shipCont.querySelectorAll(".square");
+  const temp = [];
+
+  if (ship.isSunk()) {
+    squares.forEach((square) => {
+      square.setAttribute("style", "background-color: red;");
+    });
   }
 };
 
