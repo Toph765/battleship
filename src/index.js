@@ -6,6 +6,7 @@ import {
   initplayBtn,
   compMode,
   initRandBtn,
+  renderShape,
 } from "./DOM";
 
 const gameMode = document.querySelector(".game_mode");
@@ -14,6 +15,7 @@ const pvcBtn = document.querySelector("#pvc");
 const restartBtn = document.querySelectorAll(".restart");
 const endMsg = document.querySelector(".end-game");
 const form = document.querySelector("form");
+const select = document.querySelector("#ships");
 let playerOne = Player("One");
 let playerTwo = Player("Two");
 
@@ -23,6 +25,7 @@ initplayBtn(playerOne, playerTwo);
 initRandBtn(playerOne, playerTwo);
 renderBoard(playerOne);
 renderBoard(playerTwo);
+renderShape(playerOne);
 
 pvpBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -69,5 +72,14 @@ restartBtn.forEach((button) =>
     gameMode.showModal();
   })
 );
+
+select.addEventListener("change", () => {
+  const shapeCont = document.querySelector(".shape");
+
+  while (shapeCont.lastElementChild)
+    shapeCont.removeChild(shapeCont.lastElementChild);
+
+  renderShape(playerOne);
+});
 
 document.addEventListener("onload", gameMode.showModal());
