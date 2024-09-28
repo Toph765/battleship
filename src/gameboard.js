@@ -6,16 +6,16 @@ const Gameboard = () => {
   let hits = [];
 
   let allShips = {
-    battleship: Ship(4),
-    cruiser_I: Ship(3),
-    cruiser_II: Ship(3),
-    destroyer_I: Ship(2),
-    destroyer_II: Ship(2),
-    destroyer_III: Ship(2),
-    submarine_I: Ship(1),
-    submarine_II: Ship(1),
-    submarine_III: Ship(1),
-    submarine_IV: Ship(1),
+    battleship: Ship(4, "battleship"),
+    cruiser_I: Ship(3, "cruiser_I"),
+    cruiser_II: Ship(3, "cruiser_II"),
+    destroyer_I: Ship(2, "destroyer_I"),
+    destroyer_II: Ship(2, "destroyer_II"),
+    destroyer_III: Ship(2, "destroyer_III"),
+    submarine_I: Ship(1, "submarine_I"),
+    submarine_II: Ship(1, "submarine_II"),
+    submarine_III: Ship(1, "submarine_III"),
+    submarine_IV: Ship(1, "submarine_IV"),
   };
 
   const getBoard = () => board;
