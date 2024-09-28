@@ -51,6 +51,7 @@ restartBtn.forEach((button) =>
     const x = document.querySelector("#x-coor");
     const y = document.querySelector("#y-coor");
     const opt = document.querySelector("#battleship");
+    const squares = document.querySelectorAll(".square");
 
     endMsg.close();
 
@@ -58,6 +59,10 @@ restartBtn.forEach((button) =>
     form.removeAttribute("style");
     main.classList.remove("pvc");
     window.setAttribute("data-id", "player-Two");
+
+    squares.forEach((square) => {
+      square.removeAttribute("style");
+    });
 
     x.value = "";
     y.value = "";
