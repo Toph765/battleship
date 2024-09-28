@@ -388,6 +388,21 @@ const initRandBtn = (pOne, pTwo) => {
   });
 };
 
+const renderShape = (player) => {
+  const shipsObj = player.board.getShips();
+  const selected = document.querySelector("#ships");
+  const name = selected.value;
+  const ship = shipsObj[name];
+  const length = ship.getShip().length;
+  const shapeCont = document.querySelector(".shape");
+
+  for (let i = 1; i <= length; i++) {
+    const square = document.createElement("div");
+    square.classList.add("square");
+    shapeCont.appendChild(square);
+  }
+};
+
 export {
   renderBoard,
   initPlaceShip,
@@ -395,4 +410,5 @@ export {
   initplayBtn,
   compMode,
   initRandBtn,
+  renderShape,
 };
