@@ -1,6 +1,7 @@
-const Ship = (n) => {
+const Ship = (n, name) => {
   let shipObj = {};
 
+  shipObj["name"] = name;
   shipObj["length"] = n;
   shipObj["hitCount"] = 0;
   shipObj["sunk"] = false;
@@ -20,6 +21,7 @@ const Ship = (n) => {
   };
 
   const resetShip = () => {
+    shipObj.name = name;
     shipObj.length = n;
     shipObj.hitCount = 0;
     shipObj.sunk = false;
