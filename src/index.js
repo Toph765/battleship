@@ -54,6 +54,7 @@ restartBtn.forEach((button) =>
     const opt = select.querySelector(".battleship");
     const squares = document.querySelectorAll(".square");
     const shapeCont = document.querySelector(".shape");
+    const message = document.querySelector(".message");
 
     endMsg.close();
 
@@ -71,6 +72,9 @@ restartBtn.forEach((button) =>
     y.value = "";
     opt.removeAttribute("selected");
     opt.setAttribute("selected", "");
+
+    message.textContent = "Player One please set up your board";
+    message.removeAttribute("style");
 
     renderShape(playerOne);
     playerOne.board.resetBoard();
