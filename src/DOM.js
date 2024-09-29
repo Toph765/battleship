@@ -135,6 +135,7 @@ const initFinSetup = (pOne, pTwo) => {
       const x = document.querySelector("#x-coor");
       const y = document.querySelector("#y-coor");
       const opt = ships.querySelector(".battleship");
+      const message = document.querySelector(".message");
 
       x.value = "";
       y.value = "";
@@ -144,12 +145,14 @@ const initFinSetup = (pOne, pTwo) => {
       renderShape(pTwo);
 
       if (id === "playerOne-form") {
+        message.textContent = "Player Two please set up your board";
         form.setAttribute("id", "playerTwo-form");
         hideBoard(pOne);
       }
 
       if (mode === "pvc" || id === "playerTwo-form") {
         form.setAttribute("style", "display: none;");
+        message.setAttribute("style", "display: none;");
         hideBoard(pTwo);
         const dialog = document.querySelector(".dialog");
         playerName.textContent = "Player One`s turn!";
