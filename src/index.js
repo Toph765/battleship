@@ -16,6 +16,7 @@ const restartBtn = document.querySelectorAll(".restart");
 const endMsg = document.querySelector(".end-game");
 const form = document.querySelector("form");
 const select = document.querySelector("#ships");
+const selectOr = document.querySelector("#orientation");
 let playerOne = Player("One");
 let playerTwo = Player("Two");
 
@@ -50,14 +51,16 @@ restartBtn.forEach((button) =>
     const window = document.querySelector("#play-window");
     const x = document.querySelector("#x-coor");
     const y = document.querySelector("#y-coor");
-    const opt = document.querySelector("#battleship");
+    const opt = select.querySelector(".battleship");
     const squares = document.querySelectorAll(".square");
+    const shapeCont = document.querySelector(".shape");
 
     endMsg.close();
 
     form.setAttribute("id", "playerOne-form");
     form.removeAttribute("style");
     main.classList.remove("pvc");
+    shapeCont.classList.remove("vertical");
     window.setAttribute("data-id", "player-Two");
 
     squares.forEach((square) => {
@@ -69,6 +72,7 @@ restartBtn.forEach((button) =>
     opt.removeAttribute("selected");
     opt.setAttribute("selected", "");
 
+    renderShape(playerOne);
     playerOne.board.resetBoard();
     playerTwo.board.resetBoard();
 
@@ -79,12 +83,17 @@ restartBtn.forEach((button) =>
 );
 
 select.addEventListener("change", () => {
+  renderShape(playerOne);
+});
+
+selectOr.addEventListener("change", () => {
   const shapeCont = document.querySelector(".shape");
 
-  while (shapeCont.lastElementChild)
-    shapeCont.removeChild(shapeCont.lastElementChild);
-
-  renderShape(playerOne);
+  if (selectOr.value === "vertical") {
+    shapeCont.classList.add("vertical");
+  } else {
+    shapeCont.classList.remove("vertical");
+  }
 });
 
 document.addEventListener("onload", gameMode.showModal());
