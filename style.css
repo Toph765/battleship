@@ -30,6 +30,10 @@ main {
   display: flex;
 }
 
+.vertical {
+  flex-direction: column;
+}
+
 #playerOne,
 #playerTwo {
   display: flex;
@@ -73,7 +77,7 @@ main {
 }
 
 form {
-  width: 300px;
+  width: 800px;
   display: flex;
   justify-content: center;
   gap: 2px;
@@ -90,7 +94,21 @@ form {
   background-color: aquamarine;
 }
 
+.form-left,
 .form-right {
+  width: 200px;
+}
+
+.form-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.coor {
+  display: flex;
+}
+
+.coor > div {
   display: flex;
   flex-direction: column;
 }
