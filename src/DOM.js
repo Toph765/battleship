@@ -130,14 +130,18 @@ const initFinSetup = (pOne, pTwo) => {
     });
 
     if (isAllPlaced) {
+      const shapeCont = document.querySelector(".shape");
+      const ships = document.querySelector("#ships");
       const x = document.querySelector("#x-coor");
       const y = document.querySelector("#y-coor");
-      const opt = document.querySelector("#battleship");
+      const opt = ships.querySelector(".battleship");
 
       x.value = "";
       y.value = "";
+      shapeCont.classList.remove("vertical");
       opt.removeAttribute("selected");
       opt.setAttribute("selected", "");
+      renderShape(pTwo);
 
       if (id === "playerOne-form") {
         form.setAttribute("id", "playerTwo-form");
@@ -401,6 +405,9 @@ const renderShape = (player) => {
   const ship = shipsObj[name];
   const length = ship.getShip().length;
   const shapeCont = document.querySelector(".shape");
+
+  while (shapeCont.lastElementChild)
+    shapeCont.removeChild(shapeCont.lastElementChild);
 
   for (let i = 1; i <= length; i++) {
     const square = document.createElement("div");
