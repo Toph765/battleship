@@ -136,6 +136,7 @@ const initFinSetup = (pOne, pTwo) => {
       const y = document.querySelector("#y-coor");
       const opt = ships.querySelector(".battleship");
       const message = document.querySelector(".message");
+      const span = document.querySelector("span");
 
       x.value = "";
       y.value = "";
@@ -145,7 +146,7 @@ const initFinSetup = (pOne, pTwo) => {
       renderShape(pTwo);
 
       if (id === "playerOne-form") {
-        message.textContent = "Player Two please set up your board";
+        span.textContent = "Player Two";
         form.setAttribute("id", "playerTwo-form");
         hideBoard(pOne);
       }
