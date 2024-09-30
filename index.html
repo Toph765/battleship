@@ -10,8 +10,10 @@
     <dialog class="game_mode">
       <div>
         <div>Please Choose Game Mode</div>
-        <button id="pvp">Player v Player</button>
-        <button id="pvc">Player v Computer</button>
+        <div class="mode-btns">
+          <button id="pvp">Player v Player</button>
+          <button id="pvc">Player v Computer</button>
+        </div>
       </div>
     </dialog>
     <dialog class="dialog">
@@ -22,9 +24,11 @@
       </form>
     </dialog>
     <dialog class="end-game">
-      <div>Game Over!</div>
-      <div class="winner"></div>
-      <button class="restart">Restart</button>
+      <div>
+        <div>Game Over!</div>
+        <div class="winner"></div>
+        <button class="restart">Restart</button>
+      </div>
     </dialog>
     <header>
       <div class="title">BATTLESHIP</div>
@@ -104,7 +108,7 @@
               <div>9</div>
             </div>
             <div id="boardOne"></div>
-            <div>Player One</div>
+            <div class="board-name">Player One</div>
           </div>
         </div>
       </div>
@@ -137,7 +141,7 @@
               <div>9</div>
             </div>
             <div id="boardTwo"></div>
-            <div>Player Two</div>
+            <div class="board-name">Player Two</div>
           </div>
         </div>
       </div>
@@ -184,7 +188,9 @@
         </div>
       </div>
     </main>
-    <div class="message">Player One please set up your board</div>
+    <div class="msg-cont">
+      <div class="message"><span>Player One</span> please set up your board</div>
+    </div>
     <div class="form-container">
     <form id="playerOne-form">
       <div class="form-left">
@@ -206,11 +212,11 @@
           <button id="random">Randomize</button>
           <div class="coor">
             <div>
-              <label for="x-coor">x-axis</label>
+              <div><label for="x-coor">x-axis</label></div>
               <input type="number" id="x-coor" name="x-coor" min="0" max="9" placeholder="x">
             </div>
             <div>
-              <label for="y-coor">y-axis</label>
+              <div><label for="y-coor">y-axis</label></div>
               <input type="number" id="y-coor" name="y-coor" min="0" max="9" placeholder="y">
             </div>
           </div>
