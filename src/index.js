@@ -55,6 +55,7 @@ restartBtn.forEach((button) =>
     const squares = document.querySelectorAll(".square");
     const shapeCont = document.querySelector(".shape");
     const message = document.querySelector(".message");
+    const span = document.querySelector("span");
 
     endMsg.close();
 
@@ -73,7 +74,7 @@ restartBtn.forEach((button) =>
     opt.removeAttribute("selected");
     opt.setAttribute("selected", "");
 
-    message.textContent = "Player One please set up your board";
+    span.textContent = "Player One";
     message.removeAttribute("style");
 
     renderShape(playerOne);
