@@ -7,16 +7,18 @@ const fillSqr = (player, sqr, tag, x, y) => {
         return item[0] === x && item[1] === y;
       })
     ) {
-      tag.setAttribute("style", "background-color: yellow;");
+      tag.setAttribute("style", "background-color: #FCCD2A;");
     } else {
-      tag.setAttribute("style", "background-color: blue;");
+      tag.setAttribute("style", "background-color: #6A9AB0;");
     }
   } else if (
     sqr.getShip().hitCoor.find((item) => {
       return item[0] === x && item[1] === y;
     })
   ) {
-    tag.setAttribute("style", "background-color: red;");
+    tag.setAttribute("style", "background-color: #D91656;");
+  } else {
+    tag.setAttribute("style", "background-color: #FCFAEE;");
   }
 };
 
@@ -245,7 +247,7 @@ const renderPlayBd = (pOne, pTwo, id) => {
           return item[0] === i && item[1] === j;
         })
       ) {
-        square.setAttribute("style", "background-color: red;");
+        square.setAttribute("style", "background-color: #D91656;");
         square.setAttribute("disabled", "");
       }
 
@@ -254,7 +256,7 @@ const renderPlayBd = (pOne, pTwo, id) => {
           return item[0] === i && item[1] === j;
         })
       ) {
-        square.setAttribute("style", "background-color: green;");
+        square.setAttribute("style", "background-color: #15B392;");
         square.setAttribute("disabled", "");
       }
 
@@ -297,7 +299,7 @@ const initSqrBtn = (pOne, pTwo, square) => {
         hideBoard(pOne);
       }
 
-      square.setAttribute("style", "background-color: yellow;");
+      square.setAttribute("style", "background-color: #FCCD2A;");
 
       if (mode === "pvc") {
         playerName.textContent = "Computer`s turn!";
@@ -314,10 +316,10 @@ const initSqrBtn = (pOne, pTwo, square) => {
       } else {
         updateShiplist(boardList[x][y], pTwo.number);
       }
-      square.setAttribute("style", "background-color: red;");
+      square.setAttribute("style", "background-color: #D91656;");
 
       if (board.isAllSunk()) {
-        square.setAttribute("style", "background-color: red;");
+        square.setAttribute("style", "background-color: #D91656;");
         endMsg.showModal();
         if (id === "player-Two") {
           winner.textContent = `Congratulations Player Two!`;
@@ -429,7 +431,7 @@ const updateShiplist = (ship, number) => {
 
   if (ship.isSunk()) {
     squares.forEach((square) => {
-      square.setAttribute("style", "background-color: red;");
+      square.setAttribute("style", "background-color: #D91656;");
     });
   }
 };
