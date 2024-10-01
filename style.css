@@ -6,6 +6,12 @@
   box-sizing: border-box;
 }
 
+body {
+  background-image: linear-gradient(#001f3f, #3a6d8c);
+  background-attachment: fixed;
+  color: whitesmoke;
+}
+
 .dialog,
 .game_mode,
 .end-game {
@@ -13,13 +19,13 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-}
-
-.game_mode,
-.dialog,
-.end-game {
   width: 300px;
   height: 100px;
+  background-color: #84d2f7;
+}
+
+button:hover {
+  opacity: 0.8;
 }
 
 .game_mode > div,
@@ -55,8 +61,9 @@ dialog > div > button {
   height: 24px;
   font-family: "Bitter", serif;
   font-size: 12px;
+  border-style: none;
   border-radius: 8px;
-  border: 1px solid black;
+  background-color: #ffe96b;
   margin: 2px;
 }
 
@@ -74,13 +81,14 @@ header {
 .title {
   font-size: 21px;
   font-weight: bold;
+  color: whitesmoke;
 }
 
 .header-right > .restart {
   font-size: 12px;
   width: 64px;
   height: 24px;
-  border: 1px solid black;
+  border-style: none;
   border-radius: 8px;
   font-family: "Bitter", serif;
 }
@@ -149,6 +157,26 @@ main {
   font-size: 12px;
 }
 
+#boardOne,
+#boardTwo {
+  height: 250px;
+  width: 250px;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  gap: 1px;
+}
+
+.One-square,
+.Two-square {
+  border-style: none;
+}
+
+#boardOne > button,
+#boardTwo > button {
+  background-color: #f3f8ff;
+}
+
 .board-name {
   font-family: "Bitter", serif;
   font-size: 14px;
@@ -165,6 +193,7 @@ main {
 
 .message {
   width: 400px;
+  color: #ff885b;
 }
 
 span {
@@ -220,7 +249,8 @@ label {
 }
 
 .form-right > button {
-  border: 1px solid black;
+  background-color: #ffe96b;
+  border-style: none;
   border-radius: 8px;
   padding-top: 2px;
 }
@@ -265,14 +295,4 @@ input {
 #playerOne-finBtn,
 #playerTwo-finBtn {
   width: 120px;
-}
-
-#boardOne,
-#boardTwo {
-  height: 250px;
-  width: 250px;
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: repeat(10, 1fr);
-  gap: 1px;
 }
