@@ -372,12 +372,12 @@ const autoAtk = (playOne, playTwo) => {
       renderPlayBd(playOne, playTwo, id);
       cont = false;
     } else {
+      updateShiplist(playOne.board.getBoard()[x][y], playOne.number);
       if (playOne.board.isAllSunk()) {
         cont = false;
         endMsg.showModal();
         winner.textContent = "Computer won!";
       } else {
-        updateShiplist(playOne.board.getBoard()[x][y], playOne.number);
         x = Math.floor(Math.random() * 10);
         y = Math.floor(Math.random() * 10);
       }
