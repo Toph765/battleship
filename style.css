@@ -40,6 +40,7 @@ button:hover {
   align-self: center;
   padding: 1rem;
   font-family: "Bitter", serif;
+  font-weight: 600;
 }
 
 .restart,
@@ -47,6 +48,7 @@ button:hover {
   align-self: center;
   padding: 0.3rem;
   font-family: "Bitter", serif;
+  font-weight: 600;
 }
 
 .mode-btns,
@@ -61,6 +63,7 @@ dialog > div > button {
   height: 24px;
   font-family: "Bitter", serif;
   font-size: 12px;
+  font-weight: 600;
   border-style: none;
   border-radius: 8px;
   background-color: #ffe96b;
@@ -91,6 +94,7 @@ header {
   border-style: none;
   border-radius: 8px;
   font-family: "Bitter", serif;
+  font-weight: 600;
 }
 
 main {
@@ -144,6 +148,7 @@ main {
   justify-items: center;
   font-family: "Bitter", serif;
   font-size: 12px;
+  font-weight: 600;
 }
 
 .y_axis {
@@ -155,6 +160,7 @@ main {
   justify-items: center;
   font-family: "Bitter", serif;
   font-size: 12px;
+  font-weight: 600;
 }
 
 #boardOne,
@@ -180,6 +186,7 @@ main {
 .board-name {
   font-family: "Bitter", serif;
   font-size: 14px;
+  font-weight: 600;
   padding-top: 4px;
 }
 
@@ -189,6 +196,7 @@ main {
   margin-bottom: 1rem;
   font-family: "Bitter", serif;
   font-size: 14px;
+  font-weight: 600;
 }
 
 .message {
@@ -237,6 +245,7 @@ form {
   width: 200px;
   font-family: "Bitter", serif;
   font-size: 12px;
+  font-weight: 600;
 }
 
 .form-right > button,
@@ -246,6 +255,7 @@ label {
   height: 24px;
   font-family: "Bitter", serif;
   font-size: 12px;
+  font-weight: 600;
 }
 
 .form-right > button {
